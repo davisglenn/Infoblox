@@ -1,0 +1,51 @@
+---
+- name: Add/Change/Delete CNAME
+  hosts: nios
+  connection: local
+  gather_facts: false
+  vars:
+    nios_provider:
+      host: 192.168.60.25
+      username: admin
+      password: infoblox
+    ansible_python_interpreter: /usr/bin/python3
+
+  tasks: 
+  - name: Configure a CNAME record
+    community.general.nios_cname_record:
+      name: realhost.cloud.lab
+      canonical: leaf03.cloud.lab
+      state: present
+      provider:
+        host: 192.168.60.25
+        username: admin
+        password: infoblox
+
+#  - name: install infoblox-client
+#    pip:
+#      name: infoblox-client
+#
+#  - name: fetch all networkview objects
+#    set_fact:
+#      networkviews: "{{ lookup('nios', 'networkview', provider=nios_provider) }}"
+#
+#  - name: check the networkviews
+#    debug:
+#      var: networkviews
+#
+#  - name: fetch host davis
+#    set_fact:
+#      host: "{{ lookup('nios', 'record:cname', filter={'name': 'glenn'}, provider=nios_provider) }}"
+#
+#  - name: check the davis return variable
+#    debug:
+#      var: host
+#
+#  - name: configure an IPv4 host record
+#    nios_host_record:
+#      name: leaf03.cloud.lab
+#      ipv4addrs:
+#        - ipv4addr:
+#            "192.168.65.30"
+#      state: present
+#      provider: "{{nios_provider}}"

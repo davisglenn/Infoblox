@@ -1,0 +1,4 @@
+header-cnamerecord,fqdn*,canonical_name*
+cnamerecord,davis2.cloud.lab,infoblox.cloud.lab
+cnamerecord,glenn2.cloud.lab,davis.cloud.lab
+cnamerecord,scott.cloud.lab,davis.cloud.lab
