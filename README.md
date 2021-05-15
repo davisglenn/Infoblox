@@ -1,5 +1,5 @@
 # Infoblox DNS CNAME update
-This Ansible code snippet is used to import CNAMEs into Infoblox DNS to update them automatically
+This Ansible code snippet is used to import CNAMEs into Infoblox DNS via a CSV file.  The CSV file should conform to Infoblox format:  See [CSV File Format](https://docs.infoblox.com/display/nios86/CSV+File+Format) for more information.
 
 The following json code is used to define variables 
 # Variables:
